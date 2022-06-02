@@ -1,8 +1,11 @@
 public class Main {
     public static void main(String[] args) {
 
-        FenetrePseudo f = new FenetrePseudo("pseudo");
+        FenetrePseudo fPseudo = new FenetrePseudo("pseudo");
+        fPseudo.setVisible(true);
 
-        f.setVisible(true);;
+        FenetreJeu fJeu = new FenetreJeu("Jeu");
+        fJeu.setVisible(true);
+
     }
 }

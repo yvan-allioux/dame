@@ -43,6 +43,7 @@ public class FenetreJeu extends JFrame {
         boutonQuitter = new JButton("Quitter");
         boutonQuitter.setSize(150,30);
         boutonQuitter.setLocation(810,600);
+        boutonQuitter.addActionListener(new EcouteurFermer(this));
         this.add(boutonQuitter);
 
     }

@@ -17,6 +17,7 @@ public class PanelTerrain extends JPanel {
                 if((j%2==0 && i%2==0) || (j%2!=0 && i%2!=0)){
                    plateau[i][j]= new ButtonCase();
                     plateau[i][j].setBackground(Color.WHITE);
+                    plateau[i][j].setEnabled(false);
                    this.add(plateau[i][j]);
                 }
                 else{

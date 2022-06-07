@@ -1,15 +1,21 @@
 import javax.swing.*;
 public class ButtonCase extends JButton{
         private String nom;
-    public ButtonCase() {
-        nom ="test";
+        private int x,y;
+    public ButtonCase(String unNom, int unX, int unY) {
+        nom = unNom;
+        x = unX;
+        y = unY;
     }
 
-    private void creerCaseNoir(){
-
+    public String getNom(){
+        return nom;
     }
 
-    private void creerCaseBlanc(){
-
+    public int getCoordonneesX(){
+        return x;
+    }
+    public int getCoordonneesY(){
+        return y;
     }
 }

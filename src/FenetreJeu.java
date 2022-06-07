@@ -9,15 +9,17 @@ public class FenetreJeu extends JFrame {
 
     private JButton boutonQuitter;
     private PanelTerrain panelTerrain;
+    private ModelTerrain modelTerrain;
 
     // Constructeurs //
-    public FenetreJeu(String titre) {
+    public FenetreJeu(String titre , ModelTerrain unModelTerrain) {
         setSize(980, 700);
         setTitle(titre);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        modelTerrain = unModelTerrain;
 
         construireFJeu();
     }
@@ -30,7 +32,7 @@ public class FenetreJeu extends JFrame {
         labelJ1.setLocation(20,30);
         this.add(labelJ1);
 
-        panelTerrain=new PanelTerrain(this);
+        panelTerrain=new PanelTerrain(this,  modelTerrain);
         panelTerrain.setLocation(190,30);
         this.add(panelTerrain);
 

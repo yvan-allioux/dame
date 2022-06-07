@@ -9,13 +9,15 @@ public class PanelTerrain extends JPanel {
     private  ButtonCase[][] plateau;
     private boolean testClic = false;
     private ButtonCase depart, arrivee;
-    public PanelTerrain(JFrame fenetre){
+    private ModelTerrain modelTerrain;
+    public PanelTerrain(JFrame fenetre, ModelTerrain unModelTerrain){
         this.setLayout(new GridLayout(10,10)); // création de la grille 10x10
         this.setBorder(blackline);
         this.setSize(600, 600);
         depart = new ButtonCase("depart", 0,0);
         arrivee = new ButtonCase("arrivee", 0,0);
         plateau = new ButtonCase[10][10];
+        modelTerrain = unModelTerrain;
        for(int i=0; i<10 ; i++){ // parcours chaque ligne
             for(int j=0;j<10;j++){ // parcours chaque colonne
                 if((j%2==0 && i%2==0) || (j%2!=0 && i%2!=0)){
@@ -45,6 +47,11 @@ public class PanelTerrain extends JPanel {
             this.panel=panel;
         }
 
+        /*public void paint (Graphics g){
+            super.paint(g);
+            Dimension size = getSize();
+
+        }*/
         public void actionPerformed(ActionEvent e)
         {
 

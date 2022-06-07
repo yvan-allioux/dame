@@ -9,8 +9,8 @@ public class ModelPion {
 
 
 
-    //atrubut
-    char couleur;// terue = blanc false = noire
+    //ATTRIBUTS
+    char couleur;// true = blanc false = noire
     int positionX;
     int positionY;
 

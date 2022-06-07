@@ -4,6 +4,7 @@ public class Main {
         FenetrePseudo fPseudo = new FenetrePseudo("pseudo");
         fPseudo.setVisible(true);
 
+
         FenetreJeu fJeu = new FenetreJeu("Jeu");
         fJeu.setVisible(true);
 

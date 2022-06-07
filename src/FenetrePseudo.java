@@ -2,22 +2,26 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FenetrePseudo extends JFrame{
     // Attributs //
     private JLabel labelJ1, labelJ2;
     private JTextField pseudoJ1, pseudoJ2;
     private JButton boutonValide;
+    private Controleur controleur;
     // Constructeurs //
-    public FenetrePseudo(String titre){
+    public FenetrePseudo(String titre, Controleur unControleur){
+        controleur= unControleur;
         setSize(400,400);
-	setTitle(titre);
-	setResizable(true);
-	setLocationRelativeTo(null);
-	setLayout(null);
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      
-	construireFPseudo();
+        setTitle(titre);
+        setResizable(true);
+        setLocationRelativeTo(null);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        construireFPseudo();
     }
     
     private void construireFPseudo(){
@@ -45,6 +49,25 @@ public class FenetrePseudo extends JFrame{
         boutonValide = new JButton("Valider");
         boutonValide.setLocation(10,60);
         boutonValide.setSize(100,20);
+        boutonValide.addActionListener(new EcouteurValide(this));
         this.add(boutonValide);
     }
+
+    public class EcouteurValide implements ActionListener
+    {
+        FenetrePseudo fenetre;
+
+        public EcouteurValide(FenetrePseudo fenetre)
+        {
+            this.fenetre=fenetre;
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+            controleur.enregistrerPseudo(pseudoJ1.getText(),pseudoJ2.getText());
+        }
+    }
 }
+
+
+

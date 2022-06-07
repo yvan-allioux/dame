@@ -1,7 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        
-        /*FenetrePseudo fPseudo = new FenetrePseudo("pseudo");
+
+        ModelJoueur joueur1, joueur2;
+
+        joueur1 = new ModelJoueur();
+        joueur2 = new ModelJoueur();
+        Controleur controleur;
+        controleur = new Controleur(joueur1, joueur2);
+        FenetrePseudo fPseudo = new FenetrePseudo("pseudo", controleur);
+
         fPseudo.setVisible(true);
 
 

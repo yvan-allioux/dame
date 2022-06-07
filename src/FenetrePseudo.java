@@ -16,7 +16,7 @@ public class FenetrePseudo extends JFrame{
 	setLocationRelativeTo(null);
 	setLayout(null);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      
+
 	construireFPseudo();
     }
     

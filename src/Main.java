@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-
+        
         FenetrePseudo fPseudo = new FenetrePseudo("pseudo");
         fPseudo.setVisible(true);
 

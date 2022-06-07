@@ -10,12 +10,12 @@ public class ModelPion {
 
 
     //atrubut
-    boolean couleur;// terue = blanc false = noire
+    char couleur;// terue = blanc false = noire
     int positionX;
     int positionY;
 
     //constructeur
-    public ModelPion(boolean couleurParam, int positionXParam, int positionYParam){
+    public ModelPion(char couleurParam, int positionXParam, int positionYParam){
         this.couleur = couleurParam;
         this.positionX = positionXParam;
         this.positionY = positionYParam;
@@ -28,11 +28,11 @@ public class ModelPion {
     public int getPositionY() {
         return positionY;
     }
-    public boolean getCouleur() {
+    public char getCouleur() {
         return couleur;
     }
     //setter
-    public void setCouleur(boolean couleur) {
+    public void setCouleur(char couleur) {
         this.couleur = couleur;
     }
     public void setPositionX(int positionX) {

@@ -15,6 +15,7 @@ public class FenetrePseudo extends JFrame{
     public FenetrePseudo(String titre, Controleur unControleur){
         controleur= unControleur;
         setSize(400,400);
+
         setTitle(titre);
         setResizable(true);
         setLocationRelativeTo(null);
@@ -22,6 +23,7 @@ public class FenetrePseudo extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         construireFPseudo();
+
     }
     
     private void construireFPseudo(){

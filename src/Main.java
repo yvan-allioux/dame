@@ -11,9 +11,8 @@ public class Main {
 
         fPseudo.setVisible(true);
 
-
         FenetreJeu fJeu = new FenetreJeu("Jeu");
-        fJeu.setVisible(true);*/
+        fJeu.setVisible(true);
 
         //test yvan
         ModelTerrain unModelTerrain = new ModelTerrain();

@@ -133,7 +133,8 @@ public class ModelTerrain {
             System.out.println("case de destination blanche, deplacement interdit");
         }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
             System.out.println("case de destination blanche ou noire, ok");
-            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion de la case de destination
+            matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
         }else if(couleurPion2 == 'D') {//si la case de destination est une case vide
             System.out.println("case de destination vide, ok");
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion

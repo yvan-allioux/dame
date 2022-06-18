@@ -9,7 +9,7 @@ public class ModelTerrain {
 
         System.out.println("creation terrain");
         reinitialiserTerrain();
-        System.out.println("affichage terrain");
+        System.out.println("affichage terrain console");
         afficherTerrainConsole();
 
     }
@@ -24,24 +24,83 @@ public class ModelTerrain {
                     if (j % 2 == 0) {
                         matriceDePion[i][j] = new ModelPion('_', i, j);
                     } else {
-                        if (i == 0 || i == 1 || i == 2 || i == 3) {
-                            matriceDePion[i][j] = new ModelPion('N', i, j);
-                        } else if (i == 6 || i == 7 || i == 8 || i == 9) {
-                            matriceDePion[i][j] = new ModelPion('B', i, j);
-                        } else {
-                            matriceDePion[i][j] = new ModelPion('_', i, j);
+
+                        switch (i) {
+                            case 0:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 1:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 2:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 3:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 4:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 5:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 6:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 7:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 8:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 9:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            default:
+                                matriceDePion[i][j] = new ModelPion('_', i, j);
+                                break;
                         }
 
                     }
                 } else {
                     if (j % 2 == 0) {
-                        if (i == 0 || i == 1 || i == 2 || i == 3) {
-                            matriceDePion[i][j] = new ModelPion('N', i, j);
-                        } else if (i == 6 || i == 7 || i == 8 || i == 9) {
-                            matriceDePion[i][j] = new ModelPion('B', i, j);
-                        } else {
-                            matriceDePion[i][j] = new ModelPion('_', i, j);
+
+                        switch (i) {
+                            case 0:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 1:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 2:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 3:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 4:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 5:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 6:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 7:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 8:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 9:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            default:
+                                matriceDePion[i][j] = new ModelPion('_', i, j);
+                                break;
                         }
+
                     } else {
                         matriceDePion[i][j] = new ModelPion('_', i, j);
                     }
@@ -61,12 +120,23 @@ public class ModelTerrain {
     }
     //metheode deplacement du pion
     public void deplacerPion(int x, int y, int x2, int y2) {
-        ModelPion pion = matriceDePion[x][y];
-        ModelPion pion2 = matriceDePion[x2][y2];
-        pion.setPosition(x2, y2);
-        pion2.setPosition(x, y);
-        matriceDePion[x][y] = pion2;
-        matriceDePion[x2][y2] = pion;
+        char couleurPion1 = matriceDePion[x][y].getCouleur();
+        char couleurPion2 = matriceDePion[x2][y2].getCouleur();
+
+        if(couleurPion1 == couleurPion2){
+            System.out.println("Impossible de deplacer un pion sur une case de meme couleur");
+        }else if(couleurPion1 == '_'){//si la case 1 est vide
+            System.out.println("case blanche");
+        }else if(couleurPion1 == 'D'){//si pas de case dans la case 1
+            System.out.println("case vide, deplacement interdit");
+            //matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+
+        }else if(couleurPion2 == '_') {//si la case 2 est blanche
+            System.out.println("case de destination blanche");
+        }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case 2 est un pion
+            System.out.println("case de destination blanche ou noire, ok");
+            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+        }
     }
 
     //getters

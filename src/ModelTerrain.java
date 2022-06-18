@@ -128,14 +128,20 @@ public class ModelTerrain {
         }else if(couleurPion1 == '_'){//si la case 1 est vide
             System.out.println("case blanche");
         }else if(couleurPion1 == 'D'){//si pas de case dans la case 1
-            System.out.println("case vide, deplacement interdit");
-            //matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
-
+            System.out.println("premiere selection case vide, deplacement interdit");
         }else if(couleurPion2 == '_') {//si la case 2 est blanche
-            System.out.println("case de destination blanche");
-        }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case 2 est un pion
+            System.out.println("case de destination blanche, deplacement interdit");
+        }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
             System.out.println("case de destination blanche ou noire, ok");
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+        }else if(couleurPion2 == 'D') {//si la case de destination est une case vide
+            System.out.println("case de destination vide, ok");
+            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+            matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
+        }else{
+            System.out.println("erreur");
+            System.out.println("couleurPion1 " + couleurPion1 + " couleurPion2 " + couleurPion2);
+            System.out.println("x " + x + " y " + y + " x2 " + x2 + " y2 " + y2);
         }
     }
 

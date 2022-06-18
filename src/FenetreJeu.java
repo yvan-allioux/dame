@@ -11,18 +11,18 @@ public class FenetreJeu extends JFrame {
     private PanelTerrain panelTerrain;
 
     // Constructeurs //
-    public FenetreJeu(String titre) {
+    public FenetreJeu(String titre, ModelTerrain unModelTerrain) {
         setSize(980, 700);
         setTitle(titre);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        construireFJeu();
+        //Y : je pas en param le trerrain
+        construireFJeu(unModelTerrain);
     }
 
-    private void construireFJeu() {
+    private void construireFJeu(ModelTerrain unModelTerrain) {
         labelJ1 = new JLabel("Joueur 1");
         labelImageJ1 = new JLabel(new ImageIcon("src/avatar/Axelane.png"));
         labelImageJ1.setSize(100,120);
@@ -30,7 +30,7 @@ public class FenetreJeu extends JFrame {
         labelJ1.setLocation(20,30);
         this.add(labelJ1);
 
-        panelTerrain=new PanelTerrain(this);
+        panelTerrain = new PanelTerrain(this, unModelTerrain);
         panelTerrain.setLocation(190,30);
         this.add(panelTerrain);
 

@@ -1,4 +1,6 @@
 public class Controleur {
+    //attention le controleur est juste une interface entre le model et la vue dans le cadre de ce projet !!!
+
     // ATTRIBUTS //
     private ModelJoueur joueur1;
     private ModelJoueur joueur2;

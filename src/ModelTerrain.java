@@ -8,54 +8,141 @@ public class ModelTerrain {
     public ModelTerrain() {
 
         System.out.println("creation terrain");
-
-        for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
-            for (int j = 0; j < matriceDePion[i].length;j++) {//parcours de la ligne
-
-                if (i % 2 == 0) {//si la ligne est pair
-                    if (j % 2 == 0){
-                        matriceDePion[i][j] = new ModelPion('_',i,j);
-                    }
-                    else {
-                        if(i == 0 || i == 1 || i == 2 || i == 3){
-                            matriceDePion[i][j] = new ModelPion('N',i,j);
-                        }else if(i == 6 || i == 7 || i == 8 || i == 9){
-                            matriceDePion[i][j] = new ModelPion('B',i,j);
-                        }else{
-                            matriceDePion[i][j] = new ModelPion('_',i,j);
-                        }
-
-                    }
-                } else {
-                    if (j % 2 == 0){
-                        if(i == 0 || i == 1 || i == 2 || i == 3){
-                            matriceDePion[i][j] = new ModelPion('N',i,j);
-                        }else if(i == 6 || i == 7 || i == 8 || i == 9){
-                            matriceDePion[i][j] = new ModelPion('B',i,j);
-                        }else{
-                            matriceDePion[i][j] = new ModelPion('_',i,j);
-                        }
-                    } else {
-                        matriceDePion[i][j] = new ModelPion('_',i,j);
-                    }
-                }
-
-
-                System.out.print(matriceDePion[i][j].getCouleur() + " | ");
-
-            }
-            System.out.println(" ");
-        }
-
-
-        //ModelPion unPion = new ModelPion(true);
+        reinitialiserTerrain();
+        System.out.println("affichage terrain console");
+        afficherTerrainConsole();
 
     }
 
     //méthode
     //renisialisation du terrain
     public void reinitialiserTerrain() {
+        for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
+            for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
 
+                if (i % 2 == 0) {//si la ligne est pair
+                    if (j % 2 == 0) {
+                        matriceDePion[i][j] = new ModelPion('_', i, j);
+                    } else {
+
+                        switch (i) {
+                            case 0:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 1:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 2:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 3:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 4:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 5:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 6:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 7:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 8:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 9:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            default:
+                                matriceDePion[i][j] = new ModelPion('_', i, j);
+                                break;
+                        }
+
+                    }
+                } else {
+                    if (j % 2 == 0) {
+
+                        switch (i) {
+                            case 0:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 1:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 2:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 3:
+                                matriceDePion[i][j] = new ModelPion('N', i, j);
+                                break;
+                            case 4:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 5:
+                                matriceDePion[i][j] = new ModelPion('D', i, j);
+                                break;
+                            case 6:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 7:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 8:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            case 9:
+                                matriceDePion[i][j] = new ModelPion('B', i, j);
+                                break;
+                            default:
+                                matriceDePion[i][j] = new ModelPion('_', i, j);
+                                break;
+                        }
+
+                    } else {
+                        matriceDePion[i][j] = new ModelPion('_', i, j);
+                    }
+                }
+            }
+        }
+
+    }
+    //affichage du terrain console
+    public void afficherTerrainConsole() {
+        for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
+            for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
+                System.out.print(matriceDePion[i][j].getCouleur() + " | ");
+            }
+            System.out.println(" ");
+        }
+    }
+    //metheode deplacement du pion
+    public void deplacerPion(int x, int y, int x2, int y2) {
+        char couleurPion1 = matriceDePion[x][y].getCouleur();
+        char couleurPion2 = matriceDePion[x2][y2].getCouleur();
+
+        if(couleurPion1 == couleurPion2){
+            System.out.println("Impossible de deplacer un pion sur une case de meme couleur");
+        }else if(couleurPion1 == '_'){//si la case 1 est vide
+            System.out.println("case blanche");
+        }else if(couleurPion1 == 'D'){//si pas de case dans la case 1
+            System.out.println("premiere selection case vide, deplacement interdit");
+        }else if(couleurPion2 == '_') {//si la case 2 est blanche
+            System.out.println("case de destination blanche, deplacement interdit");
+        }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
+            System.out.println("case de destination blanche ou noire, ok");
+            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+        }else if(couleurPion2 == 'D') {//si la case de destination est une case vide
+            System.out.println("case de destination vide, ok");
+            matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
+            matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
+        }else{
+            System.out.println("erreur");
+            System.out.println("couleurPion1 " + couleurPion1 + " couleurPion2 " + couleurPion2);
+            System.out.println("x " + x + " y " + y + " x2 " + x2 + " y2 " + y2);
+        }
     }
 
     //getters

@@ -5,11 +5,16 @@ import javax.swing.JButton;
 import java.awt.event.*;
 
 public class PanelTerrain extends JPanel {
+
+    private ModelTerrain unModelTerrain;
     private Border blackline = BorderFactory.createLineBorder(Color.black,1);
     private  ButtonCase[][] plateau;
     private boolean testClic = false;
     private ButtonCase depart, arrivee;
-    public PanelTerrain(JFrame fenetre){
+
+    //constructeur ???
+    public PanelTerrain(JFrame fenetre, ModelTerrain unModelTerrain) {
+        this.unModelTerrain = unModelTerrain;//on recupere le model terrain
         this.setLayout(new GridLayout(10,10)); // création de la grille 10x10
         this.setBorder(blackline);
         this.setSize(600, 600);
@@ -59,6 +64,13 @@ public class PanelTerrain extends JPanel {
                 System.out.println("clic Arrivée");
                 System.out.println("Depart : x " + depart.getCoordonneesX() + " y " + depart.getCoordonneesY());
                 System.out.println("Arrivee : x " + arrivee.getCoordonneesX() + " y " + arrivee.getCoordonneesY());
+
+                //depacement du pion
+                System.out.println("lancement du delacement --- "+ unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() + " : x "+ depart.getCoordonneesX() + " y " + depart.getCoordonneesY() + "  -->  " + unModelTerrain.getPionSurTerrainAvecPosition(arrivee.getCoordonneesX(), arrivee.getCoordonneesY()).getCouleur() +" : z " + arrivee.getCoordonneesX() + " y " + arrivee.getCoordonneesY());//descripteur de deplacement
+                unModelTerrain.deplacerPion(depart.getCoordonneesX(), depart.getCoordonneesY(), arrivee.getCoordonneesX(), arrivee.getCoordonneesY());
+                unModelTerrain.afficherTerrainConsole();
+                //actualisation de l'affichage du terrain et des pion aces les icones
+
                 testClic = false;
             }
 

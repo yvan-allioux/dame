@@ -4,7 +4,7 @@ import java.awt.*;
 public class FenetreJeu extends JFrame {
 
     // Attributs //
-    private JLabel labelJ1, labelJ2;
+    private JLabel labelJ1, labelJ2, labelScorJ1, labelScorJ2;
     private JLabel labelImageJ1, labelImageJ2;
 
     private JButton boutonQuitter;
@@ -39,6 +39,18 @@ public class FenetreJeu extends JFrame {
         labelJ2.setSize(150,30);
         labelJ2.setLocation(810,30);
         this.add(labelJ2);
+
+        //pour ajouter les scor il faudrais apler une fonction d'actualisation quand dans panel terrain on clique quelqie par
+        //et cette fonction apler depuis panel terrain va chercher dans le model le scor des user
+        labelScorJ1 = new JLabel("scor joueur 1 : 0");
+        labelScorJ1.setSize(150,30);
+        labelScorJ1.setLocation(20,100);
+        this.add(labelScorJ1);
+
+        labelScorJ2 = new JLabel("scor joueur 2 : 0");
+        labelScorJ2.setSize(150,30);
+        labelScorJ2.setLocation(810,100);
+        this.add(labelScorJ2);
 
         boutonQuitter = new JButton("Quitter");
         boutonQuitter.setSize(150,30);

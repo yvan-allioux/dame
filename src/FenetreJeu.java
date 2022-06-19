@@ -48,4 +48,20 @@ public class FenetreJeu extends JFrame {
 
     }
 
+    //getters
+    public JLabel getLabelJ1() {
+        return labelJ1;
+    }
+    public JLabel getLabelJ2() {
+        return labelJ2;
+    }
+
+    //setters
+    public void setLabelJ1(String pseudo1Param) {
+        labelJ1.setText(pseudo1Param);
+    }
+    public void setLabelJ2(String pseudo2Param) {
+        labelJ2.setText(pseudo2Param);
+    }
+
 }

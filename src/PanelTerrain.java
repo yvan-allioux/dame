@@ -5,20 +5,23 @@ import javax.swing.JButton;
 import java.awt.event.*;
 
 public class PanelTerrain extends JPanel {
+    //ATTRIBUTS
+    private ModelTerrain unModelTerrain;
     private Border blackline = BorderFactory.createLineBorder(Color.black,1);
     private  ButtonCase[][] plateau;
     private boolean testClic = false;
     private ButtonCase depart, arrivee;
-    private ModelTerrain modelTerrain;
-    public PanelTerrain(JFrame fenetre, ModelTerrain unModelTerrain){
+
+    //CONSTRUCTEUR
+    public PanelTerrain(JFrame fenetre, ModelTerrain unModelTerrain) {
+        this.unModelTerrain = unModelTerrain;//on recupere le model terrain
         this.setLayout(new GridLayout(10,10)); // création de la grille 10x10
         this.setBorder(blackline);
         this.setSize(600, 600);
         depart = new ButtonCase("depart", 0,0);
         arrivee = new ButtonCase("arrivee", 0,0);
         plateau = new ButtonCase[10][10];
-        modelTerrain = unModelTerrain;
-       for(int i=0; i<10 ; i++){ // parcours chaque ligne
+        for(int i=0; i<10 ; i++){ // parcours chaque ligne
             for(int j=0;j<10;j++){ // parcours chaque colonne
                 if((j%2==0 && i%2==0) || (j%2!=0 && i%2!=0)){
                     // initialisation case blanche
@@ -29,7 +32,7 @@ public class PanelTerrain extends JPanel {
 
                 }
                 else{
-                    // initialisation case noir
+                    //initialisation case noire
                     plateau[i][j]= new ButtonCase("bouton" + i+j, i, j);
                     plateau[i][j].setBorder(blackline);
                     plateau[i][j].addActionListener(new EcouteurCase(this));
@@ -38,10 +41,11 @@ public class PanelTerrain extends JPanel {
             }
 
         }
+        actualiserAffichage();//on actualise l'affichage avec des backgrounds blancs et noirs selon le model
     }
 
-    public class EcouteurCase implements ActionListener
-    {
+    //actualise le plateau
+    public class EcouteurCase implements ActionListener {
         PanelTerrain panel;
 
         public EcouteurCase(PanelTerrain panel)
@@ -49,11 +53,6 @@ public class PanelTerrain extends JPanel {
             this.panel=panel;
         }
 
-        /*public void paint (Graphics g){
-            super.paint(g);
-            Dimension size = getSize();
-
-        }*/
         public void actionPerformed(ActionEvent e)
         {
 
@@ -68,11 +67,21 @@ public class PanelTerrain extends JPanel {
                 System.out.println("clic Arrivée");
                 System.out.println("Depart : x " + depart.getCoordonneesX() + " y " + depart.getCoordonneesY());
                 System.out.println("Arrivee : x " + arrivee.getCoordonneesX() + " y " + arrivee.getCoordonneesY());
+
+                //depacement du pion dans le model terrain
+                System.out.println("lancement du delacement --- "+ unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() + " : x "+ depart.getCoordonneesX() + " y " + depart.getCoordonneesY() + "  -->  " + unModelTerrain.getPionSurTerrainAvecPosition(arrivee.getCoordonneesX(), arrivee.getCoordonneesY()).getCouleur() +" : z " + arrivee.getCoordonneesX() + " y " + arrivee.getCoordonneesY());//descripteur de deplacement
+                unModelTerrain.deplacerPion(depart.getCoordonneesX(), depart.getCoordonneesY(), arrivee.getCoordonneesX(), arrivee.getCoordonneesY());
+                unModelTerrain.afficherTerrainConsole();
+                //actualisation de l'affichage du terrain et des pion avec les icones
+                actualiserAffichage();
+
                 testClic = false;
             }
 
         }
     }
+
+
 
     //fonction qui permet de mettre a jour l'affichage du terrain en fonction du model terrain
     public void actualiserAffichage(){

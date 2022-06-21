@@ -3,16 +3,13 @@ import java.awt.*;
 
 public class FenetreJeu extends JFrame {
 
-    // Attributs //
-
+    // ATTRIBUTS
     private JLabel labelJ1, labelJ2, labelScoreJ1, labelScoreJ2;
-
-
     private JButton boutonQuitter, boutonRejouer, boutonFinTourJ1, boutonFinTourJ2;
     private PanelTerrain panelTerrain;
     private ModelTerrain modelTerrain;
 
-    // Constructeurs //
+    // CONSTRUCTEUR
     public FenetreJeu(String titre , ModelTerrain unModelTerrain) {
         setSize(980, 700);
         setTitle(titre);
@@ -24,7 +21,7 @@ public class FenetreJeu extends JFrame {
 
         construireFJeu();
     }
-
+    //METHODES
     private void construireFJeu() {
         labelJ1 = new JLabel("Joueur 1");
         labelJ1.setSize(150,30);
@@ -76,4 +73,21 @@ public class FenetreJeu extends JFrame {
 
     }
 
+    //ACCESSEURS
+    public JLabel getLabelJ1() {
+        return labelJ1;
+    }
+    public JLabel getLabelJ2() {
+        return labelJ2;
+    }
+
+    //MODIFICATEURS
+    public void setLabelJ1(String pseudo1Param) {
+        labelJ1.setText(pseudo1Param);
+    }
+    public void setLabelJ2(String pseudo2Param) {
+        labelJ2.setText(pseudo2Param);
+    }
+
 }
+

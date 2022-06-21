@@ -1,13 +1,15 @@
 import javax.swing.*;
 public class ButtonCase extends JButton{
-        private String nom;
-        private int x,y;
+    // ATTRIBUTS
+    private String nom;
+    private int x,y;
+    // CONSTRUCTEUR
     public ButtonCase(String unNom, int unX, int unY) {
         nom = unNom;
         x = unX;
         y = unY;
     }
-
+    // ACCESSEURS
     public String getNom(){
         return nom;
     }

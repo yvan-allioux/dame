@@ -18,6 +18,12 @@ public class Controleur {
 
        joueur1.setPseudo(pseudo1);
        joueur2.setPseudo(pseudo2);
+
         System.out.println(joueur1.getPseudo() + joueur2.getPseudo());
+
+       System.out.println(joueur1.getPseudo() + " - " +joueur2.getPseudo());
+          vueJeu.setLabelJ1("Joueur 1 : "+joueur1.getPseudo());
+           vueJeu.setLabelJ2("Joueur 2 : "+joueur2.getPseudo());
+
     }
 }

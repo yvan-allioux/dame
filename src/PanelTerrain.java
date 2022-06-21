@@ -21,15 +21,17 @@ public class PanelTerrain extends JPanel {
        for(int i=0; i<10 ; i++){ // parcours chaque ligne
             for(int j=0;j<10;j++){ // parcours chaque colonne
                 if((j%2==0 && i%2==0) || (j%2!=0 && i%2!=0)){
+                    // initialisation case blanche
                     plateau[i][j]= new ButtonCase("bouton" + i+j, i, j);
                     plateau[i][j].setBackground(Color.WHITE);
                     plateau[i][j].setEnabled(false);
-                   this.add(plateau[i][j]);
+                    this.add(plateau[i][j]);
+
                 }
                 else{
+                    // initialisation case noir
                     plateau[i][j]= new ButtonCase("bouton" + i+j, i, j);
                     plateau[i][j].setBorder(blackline);
-                    plateau[i][j].setBackground(Color.BLACK);
                     plateau[i][j].addActionListener(new EcouteurCase(this));
                     this.add(plateau[i][j]);
                 }
@@ -70,6 +72,33 @@ public class PanelTerrain extends JPanel {
             }
 
         }
+    }
+
+    //fonction qui permet de mettre a jour l'affichage du terrain en fonction du model terrain
+    public void actualiserAffichage(){
+        // initialisation des images de fond pour les cases
+        ImageIcon pionNoir = new ImageIcon("src/case_pN.png"); // case noir avec un pion noir dessus
+        ImageIcon pionBlanc = new ImageIcon("src/case_pB.png"); // case noir avec un pion blanc dessus
+        ImageIcon caseVide = new ImageIcon("src/case.png"); // case noir vide
+
+        for(int i=0; i<10 ; i++){ // parcours chaque ligne
+            for(int j=0;j<10;j++) { // parcours chaque colonne
+
+                //unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur(); // Je pense pas que ce soit utile puisque tu stock pas l'info et que tu refais le test à chaque fois
+                if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'N') {
+                  plateau[i][j].setIcon(pionNoir); // on place un pion noir
+                }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'B') {
+                    plateau[i][j].setIcon(pionBlanc); // on place un pion blanc
+                }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == '_') {
+                    //rien c'est une case blanche
+                }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'D') {
+                    plateau[i][j].setIcon(caseVide); //on remet en noir la case comme a l'origine
+                }
+
+            }
+        }
+
+
     }
 
 }

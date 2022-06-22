@@ -6,29 +6,36 @@ public class FenetreJeu extends JFrame {
     // ATTRIBUTS
     private JLabel labelJ1, labelJ2, labelScoreJ1, labelScoreJ2;
     private JButton boutonQuitter, boutonRejouer, boutonFinTourJ1, boutonFinTourJ2;
+  
     private PanelTerrain panelTerrain;
     private ModelTerrain modelTerrain;
 
+
     // CONSTRUCTEUR
     public FenetreJeu(String titre , ModelTerrain unModelTerrain) {
+
         setSize(980, 700);
         setTitle(titre);
         setResizable(false);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         modelTerrain = unModelTerrain;
 
         construireFJeu();
     }
     //METHODES
     private void construireFJeu() {
+
         labelJ1 = new JLabel("Joueur 1");
         labelJ1.setSize(150,30);
         labelJ1.setLocation(20,30);
         this.add(labelJ1);
 
+
         panelTerrain=new PanelTerrain(this,  modelTerrain);
+
         panelTerrain.setLocation(190,30);
         this.add(panelTerrain);
 
@@ -36,6 +43,7 @@ public class FenetreJeu extends JFrame {
         labelJ2.setSize(150,30);
         labelJ2.setLocation(810,30);
         this.add(labelJ2);
+
 
         //pour ajouter les scores il faudrait appeler une fonction d'actualisation quand dans panel terrain on clique quelque par
         //et cette fonction appeler depuis panel terrain va chercher dans le model le score des utilisateurs
@@ -65,6 +73,7 @@ public class FenetreJeu extends JFrame {
         this.add(boutonRejouer);
 
 
+
         boutonQuitter = new JButton("Quitter");
         boutonQuitter.setSize(150,30);
         boutonQuitter.setLocation(810,600);
@@ -73,7 +82,11 @@ public class FenetreJeu extends JFrame {
 
     }
 
+
     //ACCESSEURS
+
+    //getters
+
     public JLabel getLabelJ1() {
         return labelJ1;
     }
@@ -81,7 +94,11 @@ public class FenetreJeu extends JFrame {
         return labelJ2;
     }
 
+
     //MODIFICATEURS
+
+    //setters
+
     public void setLabelJ1(String pseudo1Param) {
         labelJ1.setText(pseudo1Param);
     }

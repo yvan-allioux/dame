@@ -5,14 +5,18 @@ import javax.swing.JButton;
 import java.awt.event.*;
 
 public class PanelTerrain extends JPanel {
+
     //ATTRIBUTS
+
     private ModelTerrain unModelTerrain;
     private Border blackline = BorderFactory.createLineBorder(Color.black,1);
     private  ButtonCase[][] plateau;
     private boolean testClic = false;
     private ButtonCase depart, arrivee;
 
+
     //CONSTRUCTEUR
+
     public PanelTerrain(JFrame fenetre, ModelTerrain unModelTerrain) {
         this.unModelTerrain = unModelTerrain;//on recupere le model terrain
         this.setLayout(new GridLayout(10,10)); // création de la grille 10x10
@@ -83,6 +87,7 @@ public class PanelTerrain extends JPanel {
 
 
 
+
     //fonction qui permet de mettre a jour l'affichage du terrain en fonction du model terrain
     public void actualiserAffichage(){
         // initialisation des images de fond pour les cases
@@ -90,8 +95,10 @@ public class PanelTerrain extends JPanel {
         ImageIcon pionBlanc = new ImageIcon("src/case_pB.png"); // case noir avec un pion blanc dessus
         ImageIcon caseVide = new ImageIcon("src/case.png"); // case noir vide
 
+
         for(int i=0; i<10 ; i++){ // parcours chaque ligne
             for(int j=0;j<10;j++) { // parcours chaque colonne
+
 
                 //unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur(); // Je pense pas que ce soit utile puisque tu stock pas l'info et que tu refais le test à chaque fois
                 if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'N') {
@@ -102,6 +109,7 @@ public class PanelTerrain extends JPanel {
                     //rien c'est une case blanche
                 }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'D') {
                     plateau[i][j].setIcon(caseVide); //on remet en noir la case comme a l'origine
+
                 }
 
             }

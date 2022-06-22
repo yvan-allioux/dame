@@ -8,7 +8,9 @@ public class ModelTerrain {
     private int pionNoirPrisParLesBlancs = 0;
     private int pionBlancPrisParLesNoirs = 0;
 
+
     //CONSTRUCTEUR
+
     public ModelTerrain() {
 
         System.out.println("creation terrain");
@@ -18,8 +20,10 @@ public class ModelTerrain {
 
     }
 
+
     //METHODES
     //réinisialisation du terrain
+
     public void reinitialiserTerrain() {
         for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
             for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
@@ -151,7 +155,9 @@ public class ModelTerrain {
             System.out.println("x " + x + " y " + y + " x2 " + x2 + " y2 " + y2);
         }
     }
+
     //Mort d'un pion
+
     public void mortPion(char couleurDuPionPort) {
         if(couleurDuPionPort == 'B'){
             System.out.println("Pion blanc mort");

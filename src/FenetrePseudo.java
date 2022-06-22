@@ -8,12 +8,18 @@ import java.awt.event.ActionListener;
 public class FenetrePseudo extends JFrame{
     // Attributs //
     private JLabel labelJ1, labelJ2;
+    private ModelTerrain unModelTerrain;
     private JTextField pseudoJ1, pseudoJ2;
     private JButton boutonValide;
     private Controleur controleur;
+    private FenetreJeu fjeu;
+
+
     // Constructeurs //
-    public FenetrePseudo(String titre, Controleur unControleur){
-        controleur= unControleur;
+    public FenetrePseudo(String titre, Controleur unControleur, ModelTerrain unModelTerrain, FenetreJeu fJeuParam) {
+        this.fjeu = fJeuParam;
+        this.unModelTerrain = unModelTerrain;
+        controleur = unControleur;
         setSize(400,400);
 
         setTitle(titre);
@@ -66,8 +72,23 @@ public class FenetrePseudo extends JFrame{
 
         public void actionPerformed(ActionEvent e)
         {
+            //System.out.println("pseudoJ1 : " + pseudoJ1.getText());
+            //System.out.println("pseudoJ2 : " + pseudoJ2.getText());
+
+
+            fjeu.setVisible(true);
+
             controleur.enregistrerPseudo(pseudoJ1.getText(),pseudoJ2.getText());
         }
+    }
+
+    //settters
+    public void setFjeu(FenetreJeu fjeu) {
+        this.fjeu = fjeu;
+    }
+    //getters
+    public FenetreJeu getFjeu() {
+        return fjeu;
     }
 }
 

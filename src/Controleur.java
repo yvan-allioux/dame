@@ -6,10 +6,9 @@ public class Controleur {
     // ATTRIBUTS //
     private ModelJoueur joueur1;
     private ModelJoueur joueur2;
-    private ModelPion mPion;
     private ModelTerrain mTerrain;
     private FenetreJeu vueJeu;
-    private FenetrePseudo vuePseudo;
+
     // CONSTRUCTEUR //
     public Controleur(ModelJoueur unJoueur1, ModelJoueur unJoueur2, ModelTerrain mTerrainParam, FenetreJeu vueJeuParam) {
         joueur1 = unJoueur1;
@@ -33,6 +32,7 @@ public class Controleur {
        else
        {
            vueJeu.setLabelJ1("J 1 : "+joueur1.getPseudo());
+           vueJeu.setlabelPseudo1Tour("tour de "+joueur1.getPseudo());
        }
 
        if(joueur2.getPseudo().equals(""))
@@ -42,6 +42,7 @@ public class Controleur {
        else
        {
            vueJeu.setLabelJ2("J 2 : "+joueur2.getPseudo());
+           vueJeu.setlabelPseudo2Tour("tour de "+joueur2.getPseudo());
        }
 
 

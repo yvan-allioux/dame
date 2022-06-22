@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class FenetreJeu extends JFrame {
 
@@ -70,6 +73,7 @@ public class FenetreJeu extends JFrame {
         boutonRejouer = new JButton("Rejouer");
         boutonRejouer.setSize(150,30);
         boutonRejouer.setLocation(20,600);
+        boutonRejouer.addActionListener(new EcouteurRejouer(this));
         this.add(boutonRejouer);
 
 
@@ -80,6 +84,22 @@ public class FenetreJeu extends JFrame {
         boutonQuitter.addActionListener(new EcouteurFermer(this));
         this.add(boutonQuitter);
 
+    }
+
+    //action listener pour le bouton rejouer
+    public class EcouteurRejouer implements ActionListener
+    {
+        FenetreJeu fenetre;
+
+        public EcouteurRejouer(FenetreJeu fenetre)
+        {
+            this.fenetre=fenetre;
+        }
+
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.println("rejouer");
+        }
     }
 
 

@@ -8,6 +8,8 @@ public class ModelTerrain {
     private int pionNoirPrisParLesBlancs = 0;
     private int pionBlancPrisParLesNoirs = 0;
 
+    private boolean tourJoueur1 = true;
+
 
     //CONSTRUCTEUR
 
@@ -174,6 +176,7 @@ public class ModelTerrain {
     }
 
     //ACCESSEURS
+    //GETTER
     public ModelPion[][] getMatriceDePion() {
         return matriceDePion;
     }
@@ -187,7 +190,12 @@ public class ModelTerrain {
     public ModelPion getPionSurTerrainAvecPosition(int i, int j) {
         return matriceDePion[i][j];
     }
+
+    public boolean getTourJoueur1() {
+        return tourJoueur1;
+    }
     //MODIFICATEURS
+    //SETTER
     public void setMatriceDePion(ModelPion[][] matriceDePion) {
         this.matriceDePion = matriceDePion;
     }
@@ -197,5 +205,7 @@ public class ModelTerrain {
     public void setPionBlancPrisParLesNoirs(int pionBlancPrisParLesNoirs) {
         this.pionBlancPrisParLesNoirs = pionBlancPrisParLesNoirs;
     }
-
+    public void setTourJoueur1(boolean tourJoueur1) {
+        this.tourJoueur1 = tourJoueur1;
+    }
 }

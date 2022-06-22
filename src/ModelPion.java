@@ -9,19 +9,19 @@ public class ModelPion {
 
 
 
-    //atrubut
+    //ATTRIBUTS
     char couleur;// terue = blanc false = noire
     int positionX;
     int positionY;
 
-    //constructeur
+    //CONSTRUCTEURS
     public ModelPion(char couleurParam, int positionXParam, int positionYParam){
         this.couleur = couleurParam;
         this.positionX = positionXParam;
         this.positionY = positionYParam;
     }
 
-    //getter
+    //ACCESSEURS
     public int getPositionX() {
         return positionX;
     }

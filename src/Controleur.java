@@ -28,7 +28,7 @@ public class Controleur {
 
        if(joueur1.getPseudo().equals(""))
        {
-           vueJeu.setLabelJ1("J 1 : JOUEUR 1"+joueur1.getPseudo());
+           vueJeu.setLabelJ1("J 1 : JOUEUR 1");
        }
        else
        {
@@ -37,7 +37,7 @@ public class Controleur {
 
        if(joueur2.getPseudo().equals(""))
        {
-           vueJeu.setLabelJ2("J 2 : JOUEUR 2"+joueur2.getPseudo());
+           vueJeu.setLabelJ2("J 2 : JOUEUR 2");
        }
        else
        {

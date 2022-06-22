@@ -2,13 +2,15 @@ import java.util.ArrayList;
 
 public class ModelTerrain {
 
-    //atributs
+    //ATTRIBUTS
     ModelPion matriceDePion[][] = new ModelPion[10][10];
 
     private int pionNoirPrisParLesBlancs = 0;
     private int pionBlancPrisParLesNoirs = 0;
 
-    //Constructeur
+
+    //CONSTRUCTEUR
+
     public ModelTerrain() {
 
         System.out.println("creation terrain");
@@ -18,8 +20,10 @@ public class ModelTerrain {
 
     }
 
-    //méthode
-    //renisialisation du terrain
+
+    //METHODES
+    //réinisialisation du terrain
+
     public void reinitialiserTerrain() {
         for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
             for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
@@ -151,7 +155,9 @@ public class ModelTerrain {
             System.out.println("x " + x + " y " + y + " x2 " + x2 + " y2 " + y2);
         }
     }
-    //Mort dun pion
+
+    //Mort d'un pion
+
     public void mortPion(char couleurDuPionPort) {
         if(couleurDuPionPort == 'B'){
             System.out.println("Pion blanc mort");
@@ -167,7 +173,7 @@ public class ModelTerrain {
 
     }
 
-    //getters
+    //ACCESSEURS
     public ModelPion[][] getMatriceDePion() {
         return matriceDePion;
     }
@@ -181,7 +187,7 @@ public class ModelTerrain {
     public ModelPion getPionSurTerrainAvecPosition(int i, int j) {
         return matriceDePion[i][j];
     }
-    //setters
+    //MODIFICATEURS
     public void setMatriceDePion(ModelPion[][] matriceDePion) {
         this.matriceDePion = matriceDePion;
     }

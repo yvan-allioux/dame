@@ -64,7 +64,15 @@ public class PanelTerrain extends JPanel {
                 depart = (ButtonCase) e.getSource();
                 System.out.println("x" + depart.getCoordonneesX() + "y" + depart.getCoordonneesY());
                 System.out.println("clic Depart");
-                testClic=true;
+                if((unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() == 'D') || (unModelTerrain.getTourJoueur1() && (unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() == 'N')) || (!(unModelTerrain.getTourJoueur1()) && (unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() == 'B'))){
+                    //console
+                    System.out.println("prepiere selection case vide, reset -- OU -- tour des blanc et premier clic pion noir - OU - tour des noir et clic sur pion blanc");
+                    testClic = false;
+                }else{
+                    testClic = true;
+                }
+
+
             }else{
                 arrivee = (ButtonCase) e.getSource();
                 System.out.println("x" + arrivee.getCoordonneesX() + "y" + arrivee.getCoordonneesY());
@@ -74,7 +82,9 @@ public class PanelTerrain extends JPanel {
 
                 //depacement du pion dans le model terrain
                 System.out.println("lancement du delacement --- "+ unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getCouleur() + " : x "+ depart.getCoordonneesX() + " y " + depart.getCoordonneesY() + "  -->  " + unModelTerrain.getPionSurTerrainAvecPosition(arrivee.getCoordonneesX(), arrivee.getCoordonneesY()).getCouleur() +" : z " + arrivee.getCoordonneesX() + " y " + arrivee.getCoordonneesY());//descripteur de deplacement
-                unModelTerrain.deplacerPion(depart.getCoordonneesX(), depart.getCoordonneesY(), arrivee.getCoordonneesX(), arrivee.getCoordonneesY());
+                if((unModelTerrain.deplacerPion(depart.getCoordonneesX(), depart.getCoordonneesY(), arrivee.getCoordonneesX(), arrivee.getCoordonneesY())) == 2){//si on clic sur une case vide
+                    System.out.println("--------- ERREUR --------");
+                }
                 unModelTerrain.afficherTerrainConsole();
                 //actualisation de l'affichage du terrain et des pion avec les icones
                 actualiserAffichage();

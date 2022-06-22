@@ -1,12 +1,10 @@
-import java.util.ArrayList;
-
 public class ModelTerrain {
 
     //ATTRIBUTS
     ModelPion matriceDePion[][] = new ModelPion[10][10];
 
-    private int pionNoirPrisParLesBlancs = 0;
-    private int pionBlancPrisParLesNoirs = 0;
+    private int pionNoirMort = 0;
+    private int pionBlancMort = 0;
 
     private boolean tourJoueur1 = true;
 
@@ -129,32 +127,40 @@ public class ModelTerrain {
         }
     }
     //metheode deplacement du pion
-    public void deplacerPion(int x, int y, int x2, int y2) {
+    public int deplacerPion(int x, int y, int x2, int y2) {
         char couleurPion1 = matriceDePion[x][y].getCouleur();
         char couleurPion2 = matriceDePion[x2][y2].getCouleur();
 
-        if(couleurPion1 == couleurPion2){
+        if(couleurPion1 == couleurPion2){//si les pions sont de la meme couleur
             System.out.println("Impossible de deplacer un pion sur une case de meme couleur");
+            return 1;
         }else if(couleurPion1 == '_'){//si la case 1 est vide
             System.out.println("case blanche");
-        }else if(couleurPion1 == 'D'){//si pas de case dans la case 1
+            return 1;
+        }else if(couleurPion1 == 'D'){//si pas de pion dans la case 1
             System.out.println("premiere selection case vide, deplacement interdit");
+            //reset des clics
+            return 2;
         }else if(couleurPion2 == '_') {//si la case 2 est blanche
             System.out.println("case de destination blanche, deplacement interdit");
+            return 1;
         }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
             System.out.println("case de destination blanche ou noire, ok");
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion de la case de destination
             matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
             //PION MORT
             mortPion(couleurPion2);
+            return 0;
         }else if(couleurPion2 == 'D') {//si la case de destination est une case vide
             System.out.println("case de destination vide, ok");
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
             matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
+            return 0;
         }else{
             System.out.println("erreur");
             System.out.println("couleurPion1 " + couleurPion1 + " couleurPion2 " + couleurPion2);
             System.out.println("x " + x + " y " + y + " x2 " + x2 + " y2 " + y2);
+            return 1;
         }
     }
 
@@ -163,12 +169,12 @@ public class ModelTerrain {
     public void mortPion(char couleurDuPionPort) {
         if(couleurDuPionPort == 'B'){
             System.out.println("Pion blanc mort");
-            this.pionBlancPrisParLesNoirs++;
-            System.out.println("Pion blanc pris par les noirs : " + this.pionBlancPrisParLesNoirs);
+            this.pionBlancMort++;
+            System.out.println("Pion blanc pris par les noirs : " + this.pionBlancMort);
         }else if(couleurDuPionPort == 'N'){
             System.out.println("Pion noir mort");
-            this.pionNoirPrisParLesBlancs++;
-            System.out.println("Pion noir pris par les blancs : " + this.pionNoirPrisParLesBlancs);
+            this.pionNoirMort++;
+            System.out.println("Pion noir pris par les blancs : " + this.pionNoirMort);
         }else{
             System.out.println("ERREUR COULEUR DE TION MORT NON DEFINIE");
         }
@@ -180,11 +186,11 @@ public class ModelTerrain {
     public ModelPion[][] getMatriceDePion() {
         return matriceDePion;
     }
-    public int getPionNoirPrisParLesBlancs() {
-        return pionNoirPrisParLesBlancs;
+    public int getPionNoirMort() {
+        return pionNoirMort;
     }
-    public int getPionBlancPrisParLesNoirs() {
-        return pionBlancPrisParLesNoirs;
+    public int getPionBlancMort() {
+        return pionBlancMort;
     }
     //getter pour la matrice de pion
     public ModelPion getPionSurTerrainAvecPosition(int i, int j) {
@@ -199,11 +205,11 @@ public class ModelTerrain {
     public void setMatriceDePion(ModelPion[][] matriceDePion) {
         this.matriceDePion = matriceDePion;
     }
-    public void setPionNoirPrisParLesBlancs(int pionNoirPrisParLesBlancs) {
-        this.pionNoirPrisParLesBlancs = pionNoirPrisParLesBlancs;
+    public void setPionNoirMort(int pionNoirMort) {
+        this.pionNoirMort = pionNoirMort;
     }
-    public void setPionBlancPrisParLesNoirs(int pionBlancPrisParLesNoirs) {
-        this.pionBlancPrisParLesNoirs = pionBlancPrisParLesNoirs;
+    public void setPionBlancMort(int pionBlancMort) {
+        this.pionBlancMort = pionBlancMort;
     }
     public void setTourJoueur1(boolean tourJoueur1) {
         this.tourJoueur1 = tourJoueur1;

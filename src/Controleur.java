@@ -8,7 +8,7 @@ public class Controleur {
     private ModelJoueur joueur2;
     private ModelTerrain mTerrain;
     private FenetreJeu vueJeu;
-    private FenetrePseudo vuePseudo;
+
     // CONSTRUCTEUR //
     public Controleur(ModelJoueur unJoueur1, ModelJoueur unJoueur2, ModelTerrain mTerrainParam, FenetreJeu vueJeuParam) {
         joueur1 = unJoueur1;

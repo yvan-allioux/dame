@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -116,6 +115,11 @@ public class FenetreJeu extends JFrame {
 
             fenetreJeu.labelPseudo1Tour.setVisible(false);
             fenetreJeu.labelPseudo2Tour.setVisible(true);
+
+            //on actualise le score
+
+            labelScoreJ1.setText("score joueur 1 : "+ modelTerrain.getPionNoirMort());
+            labelScoreJ2.setText("score joueur 2 : "+ modelTerrain.getPionBlancMort());
         }
     }
     //action listeners pour le bouton fin tour J2
@@ -133,6 +137,10 @@ public class FenetreJeu extends JFrame {
 
             fenetreJeu.labelPseudo2Tour.setVisible(false);
             fenetreJeu.labelPseudo1Tour.setVisible(true);
+
+            //on actualise le score
+            labelScoreJ1.setText("score joueur 1 : "+ modelTerrain.getPionNoirMort());
+            labelScoreJ2.setText("score joueur 2 : "+ modelTerrain.getPionBlancMort());
         }
     }
 
@@ -148,7 +156,22 @@ public class FenetreJeu extends JFrame {
 
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("rejouer");
+            System.out.print("rejouer");
+            System.out.print("- reset tour");
+            modelTerrain.setTourJoueur1(true);//on remet le tour du joueur 1
+            boutonFinTourJ2.setVisible(false);
+            boutonFinTourJ1.setVisible(true);
+            labelPseudo2Tour.setVisible(false);
+            labelPseudo1Tour.setVisible(true);
+            System.out.print("- reset plateau");
+            modelTerrain.reinitialiserTerrain();
+            panelTerrain.actualiserAffichage();
+            System.out.print("- reset scor");
+            modelTerrain.setPionBlancMort(0);
+            modelTerrain.setPionNoirMort(0);
+            labelScoreJ1.setText("score joueur 1 : "+ modelTerrain.getPionNoirMort());
+            labelScoreJ2.setText("score joueur 2 : "+ modelTerrain.getPionBlancMort());
+
         }
     }
     //action listener pour le bouton quitter
@@ -192,6 +215,9 @@ public class FenetreJeu extends JFrame {
     }
     public void setlabelPseudo1Tour(String pseudoParam) {
         labelPseudo1Tour.setText(pseudoParam);
+    }
+    public void setLabelScoreJ1(String setLabelScoreJ1) {
+        labelJ1.setText(setLabelScoreJ1);
     }
 
 }

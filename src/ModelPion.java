@@ -1,14 +1,5 @@
 public class ModelPion {
 
-
-
-
-
-
-
-
-
-
     //ATTRIBUTS
     char couleur;// terue = blanc false = noire
     int positionX;

@@ -72,9 +72,6 @@ public class FenetrePseudo extends JFrame{
 
         public void actionPerformed(ActionEvent e)
         {
-            //System.out.println("pseudoJ1 : " + pseudoJ1.getText());
-            //System.out.println("pseudoJ2 : " + pseudoJ2.getText());
-
 
             fjeu.setVisible(true);
 

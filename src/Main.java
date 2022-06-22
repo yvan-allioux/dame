@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println("position 8 1 : " + unModelTerrain.getPionSurTerrainAvecPosition(8, 1).getCouleur());
 
-        fJeu.setVisible(true);
+        fJeu.setVisible(false);
 
         //test yvan
 

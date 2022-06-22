@@ -16,15 +16,10 @@ public class Main {
         fPseudo.setVisible(true);
 
 
-
-        ModelTerrain unModelTerrain = new ModelTerrain();
-
-
         //test yvan
 
         System.out.println("position 8 1 : " + unModelTerrain.getPionSurTerrainAvecPosition(8, 1).getCouleur());
 
-        FenetreJeu fJeu = new FenetreJeu("Jeu", unModelTerrain);
         fJeu.setVisible(true);
 
         //test yvan

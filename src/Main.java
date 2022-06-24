@@ -15,7 +15,6 @@ public class Main {
 
         fPseudo.setVisible(true);
 
-
         //test yvan
 
         System.out.println("position 8 1 : " + unModelTerrain.getPionSurTerrainAvecPosition(8, 1).getCouleur());

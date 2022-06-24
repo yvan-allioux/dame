@@ -85,6 +85,12 @@ public class PanelTerrain extends JPanel {
                 if((unModelTerrain.deplacerPion(depart.getCoordonneesX(), depart.getCoordonneesY(), arrivee.getCoordonneesX(), arrivee.getCoordonneesY())) == 2){//si on clic sur une case vide
                     System.out.println("--------- ERREUR --------");
                 }
+                if(unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).getEstDame() == true){
+                    unModelTerrain.getPionSurTerrainAvecPosition(depart.getCoordonneesX(), depart.getCoordonneesY()).setEstDame(false);
+                    unModelTerrain.getPionSurTerrainAvecPosition(arrivee.getCoordonneesX(), arrivee.getCoordonneesY()).setEstDame(true);
+                }
+
+
                 unModelTerrain.afficherTerrainConsole();
                 //actualisation de l'affichage du terrain et des pion avec les icones
                 actualiserAffichage();
@@ -105,6 +111,9 @@ public class PanelTerrain extends JPanel {
         ImageIcon pionBlanc = new ImageIcon("src/case_pB.png"); // case noir avec un pion blanc dessus
         ImageIcon caseVide = new ImageIcon("src/case.png"); // case noir vide
 
+        ImageIcon dameNoir = new ImageIcon("src/case_dN.png"); //dame
+        ImageIcon dameBlanc = new ImageIcon("src/case_dB.png");
+
 
         for(int i=0; i<10 ; i++){ // parcours chaque ligne
             for(int j=0;j<10;j++) { // parcours chaque colonne
@@ -112,9 +121,18 @@ public class PanelTerrain extends JPanel {
 
                 //unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur(); // Je pense pas que ce soit utile puisque tu stock pas l'info et que tu refais le test à chaque fois
                 if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'N') {
-                  plateau[i][j].setIcon(pionNoir); // on place un pion noir
+                    if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getEstDame()){
+                        plateau[i][j].setIcon(dameNoir);//dame
+                    }else{
+                        plateau[i][j].setIcon(pionNoir); // on place un pion noir
+                    }
+
                 }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'B') {
-                    plateau[i][j].setIcon(pionBlanc); // on place un pion blanc
+                    if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getEstDame()){
+                        plateau[i][j].setIcon(dameBlanc); // on place une dame
+                    }else{
+                        plateau[i][j].setIcon(pionBlanc); // on place un pion blanc
+                    }
                 }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == '_') {
                     //rien c'est une case blanche
                 }else if(unModelTerrain.getPionSurTerrainAvecPosition(i, j).getCouleur() == 'D') {

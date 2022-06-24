@@ -146,6 +146,13 @@ public class ModelTerrain {
             return 1;
         }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
             System.out.println("case de destination blanche ou noire, ok");
+
+            //transformation dame
+            if( ((matriceDePion[x][y].getCouleur() == 'B') && x2 == 0) || ((matriceDePion[x][y].getCouleur() == 'N') && x2 == 9) ){
+                System.out.println("TRANSFORMATION EN DAMME");
+                matriceDePion[x2][y2].setEstDame(true);
+            }
+
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion de la case de destination
             matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
             //PION MORT

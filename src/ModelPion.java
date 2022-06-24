@@ -5,6 +5,8 @@ public class ModelPion {
     int positionX;
     int positionY;
 
+    boolean estDame = false;
+
     //CONSTRUCTEURS
     public ModelPion(char couleurParam, int positionXParam, int positionYParam){
         this.couleur = couleurParam;
@@ -22,6 +24,10 @@ public class ModelPion {
     public char getCouleur() {
         return couleur;
     }
+    public boolean getEstDame() {
+        return estDame;
+    }
+
     //setter
     public void setCouleur(char couleur) {
         this.couleur = couleur;
@@ -31,6 +37,9 @@ public class ModelPion {
     }
     public void setPositionY(int positionY) {
         this.positionY = positionY;
+    }
+    public void setEstDame(boolean estDame) {
+        this.estDame = estDame;
     }
 
 }

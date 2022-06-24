@@ -1,4 +1,9 @@
-public class ModelTerrain {
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+
+
+public class ModelTerrain{
 
     //ATTRIBUTS
     ModelPion matriceDePion[][] = new ModelPion[10][10];
@@ -188,10 +193,53 @@ public class ModelTerrain {
 
     }
 
+    //sauvegarde
+    public void sauvegarde(){
+        try {
+            File myObj = new File("save.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter myWriter = new FileWriter("save.txt");
+            String stringToSave = getStringMatriceDePionForSave(matriceDePion);
+            System.out.println(" ---stringToSave--- " + stringToSave);
+            myWriter.write(stringToSave);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+
     //ACCESSEURS
     //GETTER
     public ModelPion[][] getMatriceDePion() {
         return matriceDePion;
+    }
+    public String getStringMatriceDePionForSave(ModelPion[][] maMatriceDePionParam) {
+        String monTerrainString = "";
+
+        for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
+            for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
+                monTerrainString = monTerrainString + matriceDePion[i][j].getCouleur() + " | ";
+            }
+            monTerrainString = monTerrainString + "\n";
+        }
+
+        return monTerrainString;
     }
     public int getPionNoirMort() {
         return pionNoirMort;

@@ -121,7 +121,6 @@ public class FenetreJeu extends JFrame {
             labelScoreJ1.setText("score joueur 1 : "+ modelTerrain.getPionNoirMort());
             labelScoreJ2.setText("score joueur 2 : "+ modelTerrain.getPionBlancMort());
 
-            modelTerrain.sauvegarde();
         }
     }
     //action listeners pour le bouton fin tour J2
@@ -185,6 +184,8 @@ public class FenetreJeu extends JFrame {
         }
 
         public void actionPerformed(ActionEvent event){
+
+            modelTerrain.sauvegarde(); //sauvegarde dans un fichier l'eta du terrain et le scor
             f.dispose();
         }
     }

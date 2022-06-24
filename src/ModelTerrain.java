@@ -150,12 +150,14 @@ public class ModelTerrain{
             System.out.println("case de destination blanche, deplacement interdit");
             return 1;
         }else if(couleurPion2 == 'B' || couleurPion2 == 'N') {//si la case de destination est un pion
-            System.out.println("case de destination blanche ou noire, ok");
+            System.out.println("case de destination blanche ou noire, ok " + x + y + x2 + y2 + matriceDePion[x][y].getCouleur() );
 
             //transformation dame
             if( ((matriceDePion[x][y].getCouleur() == 'B') && x2 == 0) || ((matriceDePion[x][y].getCouleur() == 'N') && x2 == 9) ){
                 System.out.println("TRANSFORMATION EN DAMME");
                 matriceDePion[x2][y2].setEstDame(true);
+            }else{
+                matriceDePion[x2][y2].setEstDame(false);
             }
 
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion de la case de destination
@@ -164,7 +166,16 @@ public class ModelTerrain{
             mortPion(couleurPion2);
             return 0;
         }else if(couleurPion2 == 'D') {//si la case de destination est une case vide
-            System.out.println("case de destination vide, ok");
+            System.out.println("case de destination vide, ok " + x + y + x2 + y2 + matriceDePion[x][y].getCouleur() );
+            
+            //transformation dame
+            if( ((matriceDePion[x][y].getCouleur() == 'B') && x2 == 0) || ((matriceDePion[x][y].getCouleur() == 'N') && x2 == 9) ){
+                System.out.println("TRANSFORMATION EN DAMME");
+                matriceDePion[x2][y2].setEstDame(true);
+            }else{
+                matriceDePion[x2][y2].setEstDame(false);
+            }
+
             matriceDePion[x2][y2].setCouleur(couleurPion1);//on change la couleur du pion
             matriceDePion[x][y].setCouleur('D');//on change la couleur de la case 1
             return 0;
@@ -234,10 +245,17 @@ public class ModelTerrain{
 
         for (int i = 0; i < matriceDePion.length; i++) {//parcours de la matrice de pion
             for (int j = 0; j < matriceDePion[i].length; j++) {//parcours de la ligne
-                monTerrainString = monTerrainString + matriceDePion[i][j].getCouleur() + " | ";
+                monTerrainString = monTerrainString + matriceDePion[i][j].getCouleur();
+                if(matriceDePion[i][j].getEstDame()){
+                    monTerrainString = monTerrainString + "*| ";
+                }else{
+                    monTerrainString = monTerrainString + " | ";
+                }
+
             }
             monTerrainString = monTerrainString + "\n";
         }
+        monTerrainString = monTerrainString + "\n pion Noir Mort : " + pionNoirMort + " pion Blanc Mort : " + pionBlancMort;
 
         return monTerrainString;
     }

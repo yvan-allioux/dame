@@ -1,12 +1,12 @@
-_ | D | _ | B*| _ | B*| _ | N | _ | N | 
+_ | D | _ | N | _ | N | _ | N | _ | N | 
 N | _ | N | _ | N | _ | N | _ | N | _ | 
 _ | N | _ | N | _ | N | _ | N | _ | N | 
-N | _ | N | _ | D | _ | D | _ | N | _ | 
+N | _ | N | _ | N | _ | N | _ | N | _ | 
 _ | D | _ | D | _ | D | _ | D | _ | D | 
-D | _ | B | _ | D | _ | B*| _ | D | _ | 
-_ | D | _ | D | _ | D | _ | D | _ | B | 
-B | _ | D | _ | D | _ | D | _ | B | _ | 
-_ | B | _ | B | _ | N | _ | B | _ | B | 
-B | _ | B | _ | D | _ | B | _ | B | _ | 
+N*| _ | B | _ | D | _ | D | _ | D | _ | 
+_ | B | _ | B | _ | B | _ | B | _ | B | 
+B | _ | B | _ | B | _ | B | _ | B | _ | 
+_ | B | _ | B | _ | B | _ | B | _ | B | 
+B | _ | D | _ | B | _ | B | _ | B | _ | 
 
- pion Noir Mort : 4 pion Blanc Mort : 5
+ pion Noir Mort : 0 pion Blanc Mort : 0

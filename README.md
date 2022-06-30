@@ -1,4 +1,7 @@
 # dame
+
+[Vidéo de démonstration](https://youtu.be/8_31gb4w220)
+
 - déplacement des pions
 - compteur de score
 - transformation des pions en dame

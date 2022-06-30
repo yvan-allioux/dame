@@ -61,7 +61,7 @@ public class FenetrePseudo extends JFrame{
         boutonValide.addActionListener(new EcouteurValide(this));
         this.add(boutonValide);
 
-        boutonAide1 = new JButton("Règle du jeux");
+        boutonAide1 = new JButton("Règles du jeu");
         boutonAide1.setLocation(10,100);
         boutonAide1.setSize(140,20);
         boutonAide1.addActionListener(new EcouteurAide(this));

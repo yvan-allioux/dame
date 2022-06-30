@@ -1,12 +1,12 @@
-_ | D | _ | N | _ | N | _ | N | _ | N | 
-N | _ | N | _ | N | _ | N | _ | N | _ | 
 _ | N | _ | N | _ | N | _ | N | _ | N | 
 N | _ | N | _ | N | _ | N | _ | N | _ | 
+_ | N | _ | N | _ | N | _ | N | _ | N | 
+N | _ | N | _ | N | _ | D | _ | N | _ | 
 _ | D | _ | D | _ | D | _ | D | _ | D | 
-N*| _ | B | _ | D | _ | D | _ | D | _ | 
-_ | B | _ | B | _ | B | _ | B | _ | B | 
+D | _ | D | _ | D | _ | D | _ | D | _ | 
+_ | D | _ | B | _ | B | _ | B | _ | B | 
 B | _ | B | _ | B | _ | B | _ | B | _ | 
 _ | B | _ | B | _ | B | _ | B | _ | B | 
-B | _ | D | _ | B | _ | B | _ | B | _ | 
+B | _ | B | _ | B | _ | B | _ | B | _ | 
 
- pion Noir Mort : 0 pion Blanc Mort : 0
+ pion Noir Mort : 1 pion Blanc Mort : 1

@@ -10,3 +10,5 @@
 - pseudo personnalisable
 - réinitialisation de la partie
 - sauvegarde dans un fichier texte l'état de la partie quand on quitte le jeu
+- 
+  ![dame](./img/dame.png)
